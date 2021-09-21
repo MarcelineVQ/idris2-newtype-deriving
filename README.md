@@ -1,4 +1,4 @@
-Newtype Generic Deriving
+Newtype, Generic Interface Deriving
 =====
 
 This package provides sorely-missed deriving for common interfaces like `Num` for newtypes and newtype-likes, iow single-constructor types. For instance:
