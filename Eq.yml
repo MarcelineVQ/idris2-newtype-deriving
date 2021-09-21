@@ -1,0 +1,17 @@
+package: newtype-generics
+version: 0.1.1.2
+
+authors:    MarcelineVQ
+readme:     README.md
+homepage:   https://github.com/MarcelineVQ/idris2-newtype-generics
+sourceloc:  https://github.com/MarcelineVQ/idris2-newtype-generics.git
+bugtracker: https://github.com/MarcelineVQ/idris2-newtype-generics/issues
+
+license: CC0 (refer to LICENSE file)
+brief:   SOP-Based Deriving for Newtype-like types
+
+depends:
+- base
+- contrib
+- elab-util
+- sop

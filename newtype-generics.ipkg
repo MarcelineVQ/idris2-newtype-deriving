@@ -1,0 +1,24 @@
+package newtype-generics
+version     = 0.0.1.2
+
+sourcedir   = "src"
+authors     = "\"MarcelineVQ\""
+license     = "CC0 (refer to LICENSE file)"
+brief       = "SOP-Based Deriving for Newtype-like types"
+readme      = "README.md"
+homepage    = "https://github.com/MarcelineVQ/idris2-newtype-generics"
+sourceloc   = "https://github.com/MarcelineVQ/idris2-newtype-generics.git"
+bugtracker  = "https://github.com/MarcelineVQ/idris2-newtype-generics/issues"
+
+depends     = base
+            , contrib
+            , elab-util
+            , sop
+
+modules     = Generics.Newtype
+            , Generics.Newtype.Abs
+            , Generics.Newtype.Fractional
+            , Generics.Newtype.FromDouble
+            , Generics.Newtype.Integral
+            , Generics.Newtype.Neg
+            , Generics.Newtype.Num
