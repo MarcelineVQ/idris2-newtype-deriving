@@ -1,6 +1,6 @@
 # literally just convenience, you'd be better served using a package manager
 
-PKGNAME = newtype-generics
+PKGNAME = newtype-deriving
 
 .PHONY: build
 
