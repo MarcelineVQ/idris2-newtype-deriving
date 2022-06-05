@@ -3,7 +3,6 @@ module Generics.Newtype.Neg
 import Generics.Newtype.Num
 
 import Generics.Derive
-%language ElabReflection
 
 --------------------------------------------------------------------------------
 --          Neg

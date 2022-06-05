@@ -3,7 +3,6 @@ module Generics.Newtype.Integral
 import Generics.Newtype.Num
 
 import Generics.Derive
-%language ElabReflection
 
 --------------------------------------------------------------------------------
 --          Integral

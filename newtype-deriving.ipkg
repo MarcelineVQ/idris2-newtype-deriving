@@ -1,21 +1,23 @@
 package newtype-deriving
-version     = 0.1.1.2
+version     = 0.1.1.4
 
 sourcedir   = "src"
-authors     = "\"MarcelineVQ\""
+authors     = "MarcelineVQ"
 license     = "CC0 (refer to LICENSE file)"
 brief       = "SOP-Based Deriving for Newtype-like types"
 readme      = "README.md"
 homepage    = "https://github.com/MarcelineVQ/idris2-newtype-deriving"
 sourceloc   = "https://github.com/MarcelineVQ/idris2-newtype-deriving.git"
 bugtracker  = "https://github.com/MarcelineVQ/idris2-newtype-deriving/issues"
+main        = Generics.Functor
 
 depends     = base
             , contrib
             , elab-util
             , sop
 
-modules     = Generics.Newtype
+modules     = Generics.Functor
+            , Generics.Newtype
             , Generics.Newtype.Abs
             , Generics.Newtype.Fractional
             , Generics.Newtype.FromDouble

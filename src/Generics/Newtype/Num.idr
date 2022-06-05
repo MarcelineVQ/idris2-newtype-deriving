@@ -1,7 +1,6 @@
 module Generics.Newtype.Num
 
 import Generics.Derive
-%language ElabReflection
 
 --------------------------------------------------------------------------------
 --          Num

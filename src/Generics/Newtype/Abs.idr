@@ -3,7 +3,6 @@ module Generics.Newtype.Abs
 import Generics.Newtype.Num
 
 import Generics.Derive
-%language ElabReflection
 
 --------------------------------------------------------------------------------
 --          Abs

@@ -15,3 +15,5 @@ depends:
 - contrib
 - elab-util
 - sop
+
+main: Generics.Functor

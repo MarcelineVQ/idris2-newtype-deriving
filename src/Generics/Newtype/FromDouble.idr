@@ -1,7 +1,6 @@
 module Generics.Newtype.FromDouble
 
 import Generics.Derive
-%language ElabReflection
 
 --------------------------------------------------------------------------------
 --          FromDouble

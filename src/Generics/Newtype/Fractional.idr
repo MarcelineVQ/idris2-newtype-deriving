@@ -3,7 +3,6 @@ module Generics.Newtype.Fractional
 import Generics.Newtype.Num
 
 import Generics.Derive
-%language ElabReflection
 
 --------------------------------------------------------------------------------
 --          Fractional
