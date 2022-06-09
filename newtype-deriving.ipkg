@@ -9,15 +9,13 @@ readme      = "README.md"
 homepage    = "https://github.com/MarcelineVQ/idris2-newtype-deriving"
 sourceloc   = "https://github.com/MarcelineVQ/idris2-newtype-deriving.git"
 bugtracker  = "https://github.com/MarcelineVQ/idris2-newtype-deriving/issues"
-main        = Generics.Functor
 
 depends     = base
             , contrib
             , elab-util
             , sop
 
-modules     = Generics.Functor
-            , Generics.Newtype
+modules     = Generics.Newtype
             , Generics.Newtype.Abs
             , Generics.Newtype.Fractional
             , Generics.Newtype.FromDouble
