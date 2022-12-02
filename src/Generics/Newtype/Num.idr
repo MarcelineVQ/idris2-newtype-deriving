@@ -52,12 +52,13 @@ genericFromInteger = to . fromInteger
 export
 ||| Derives a `Num` implementation for the given data type
 ||| and visibility.
-NumVis : Visibility -> DeriveUtil -> InterfaceImpl
-NumVis vis g = MkInterfaceImpl "Num" vis []
-                       `(MkNum genericPlus genericMult genericFromInteger)
-                       (implementationType `(Num) g)
+NumVis : Visibility -> List Name -> ParamTypeInfo -> List TopLevel
+NumVis v _ p =
+  let nm := implName p "Num"
+      cl := var nm .= `(MkNum genericPlus genericMult genericFromInteger)
+   in [TL (interfaceHint v nm (implType "Num" p)) (def nm [cl])]
 
 export
-||| Alias for `EncodeVis Public`.
-Num : DeriveUtil -> InterfaceImpl
+||| Alias for `NumVis Public`.
+Num : List Name -> ParamTypeInfo -> List TopLevel
 Num = NumVis Public
