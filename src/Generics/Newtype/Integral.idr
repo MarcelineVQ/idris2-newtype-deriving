@@ -52,13 +52,13 @@ genericMod x y = to $ mod (from x) (from y)
 export
 ||| Derives a `Integral` implementation for the given data type
 ||| and visibility.
-IntegralVis : Visibility -> List Name -> ParamTypeInfo -> List TopLevel
+IntegralVis : Visibility -> List Name -> ParamTypeInfo -> Res (List TopLevel)
 IntegralVis v _ p =
   let nm := implName p "Integral"
       cl := var nm .= `(MkIntegral genericDivIntegral genericMod)
-   in [TL (interfaceHint v nm (implType "Integral" p)) (def nm [cl])]
+   in Right [TL (interfaceHint v nm (implType "Integral" p)) (def nm [cl])]
 
 export
 ||| Alias for `IntegralVis Public`.
-Integral : List Name -> ParamTypeInfo -> List TopLevel
+Integral : List Name -> ParamTypeInfo -> Res (List TopLevel)
 Integral = IntegralVis Public

@@ -35,13 +35,13 @@ genericFromDouble = to . fromDouble
 export
 ||| Derives a `FromDouble` implementation for the given data type
 ||| and visibility.
-FromDoubleVis : Visibility -> List Name -> ParamTypeInfo -> List TopLevel
+FromDoubleVis : Visibility -> List Name -> ParamTypeInfo -> Res (List TopLevel)
 FromDoubleVis v _ p =
   let nm := implName p "FromDouble"
       cl := var nm .= `(MkFromDouble genericFromDouble)
-   in [TL (interfaceHint v nm (implType "FromDouble" p)) (def nm [cl])]
+   in Right [TL (interfaceHint v nm (implType "FromDouble" p)) (def nm [cl])]
 
 export
 ||| Alias for `FromDouble Public`.
-FromDouble : List Name -> ParamTypeInfo -> List TopLevel
+FromDouble : List Name -> ParamTypeInfo -> Res (List TopLevel)
 FromDouble = FromDoubleVis Public

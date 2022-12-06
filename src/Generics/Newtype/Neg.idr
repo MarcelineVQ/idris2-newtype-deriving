@@ -52,13 +52,13 @@ genericSubtract x y = to $ (-) (from x) (from y)
 export
 ||| Derives a `Neg` implementation for the given data type
 ||| and visibility.
-NegVis : Visibility -> List Name -> ParamTypeInfo -> List TopLevel
+NegVis : Visibility -> List Name -> ParamTypeInfo -> Res (List TopLevel)
 NegVis v _ p =
   let nm := implName p "Neg"
       cl := var nm .= `(MkNeg genericNegate genericSubtract)
-   in [TL (interfaceHint v nm (implType "Neg" p)) (def nm [cl])]
+   in Right [TL (interfaceHint v nm (implType "Neg" p)) (def nm [cl])]
 
 export
 ||| Alias for `NegVis Public`.
-Neg : List Name -> ParamTypeInfo -> List TopLevel
+Neg : List Name -> ParamTypeInfo -> Res (List TopLevel)
 Neg = NegVis Public
