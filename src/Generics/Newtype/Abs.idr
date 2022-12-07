@@ -44,12 +44,13 @@ genericAbs = to . abs . from
 export
 ||| Derives a `Abs` implementation for the given data type
 ||| and visibility.
-AbsVis : Visibility -> DeriveUtil -> InterfaceImpl
-AbsVis vis g = MkInterfaceImpl "Abs" vis []
-                       `(MkAbs genericAbs)
-                       (implementationType `(Abs) g)
+AbsVis : Visibility -> List Name -> ParamTypeInfo -> Res (List TopLevel)
+AbsVis v _ p =
+  let nm := implName p "Abs"
+      cl := var nm .= `(MkAbs genericAbs)
+   in Right [TL (interfaceHint v nm (implType "Abs" p)) (def nm [cl])]
 
 export
 ||| Alias for `EncodeVis Public`.
-Abs : DeriveUtil -> InterfaceImpl
+Abs : List Name -> ParamTypeInfo -> Res (List TopLevel)
 Abs = AbsVis Public

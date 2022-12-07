@@ -52,12 +52,13 @@ genericRecip = to . recip . from
 export
 ||| Derives a `Fractional` implementation for the given data type
 ||| and visibility.
-FractionalVis : Visibility -> DeriveUtil -> InterfaceImpl
-FractionalVis vis g = MkInterfaceImpl "Fractional" vis []
-                       `(MkFractional genericDivFractional genericRecip)
-                       (implementationType `(Fractional) g)
+FractionalVis : Visibility -> List Name -> ParamTypeInfo -> Res (List TopLevel)
+FractionalVis v _ p =
+  let nm := implName p "Fractional"
+      cl := var nm .= `(MkFractional genericDivFractional genericRecip)
+   in Right [TL (interfaceHint v nm (implType "Fractional" p)) (def nm [cl])]
 
 export
-||| Alias for `EncodeVis Public`.
-Fractional : DeriveUtil -> InterfaceImpl
+||| Alias for `FractionalVis Public`.
+Fractional : List Name -> ParamTypeInfo -> Res (List TopLevel)
 Fractional = FractionalVis Public
